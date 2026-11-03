@@ -1,0 +1,240 @@
+:root {
+  --bg-0: #060816;
+  --bg-1: #0d1531;
+  --panel: rgba(11, 18, 35, 0.7);
+  --panel-strong: rgba(15, 24, 46, 0.9);
+  --line: rgba(136, 196, 255, 0.22);
+  --text: #ebf3ff;
+  --muted: #9bb6d6;
+  --gold: #ffc857;
+  --pink: #ff5ebc;
+  --cyan: #5be4ff;
+  --green: #7ef29a;
+  --danger: #ff5d6c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Inter, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(74, 103, 255, 0.25), transparent 38%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1));
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.app-shell {
+  width: min(100%, 1100px);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(5, 9, 21, 0.72);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 42px rgba(4, 8, 20, 0.45);
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(91, 228, 255, 0.2), rgba(255, 94, 188, 0.32));
+  border: 1px solid rgba(91, 228, 255, 0.5);
+  color: var(--gold);
+  font-size: 1.4rem;
+  box-shadow: 0 0 22px rgba(91, 228, 255, 0.35);
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  letter-spacing: 0.06em;
+}
+
+.hud {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  min-width: 110px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(136, 196, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.stat strong {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.game-panel {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(7, 13, 28, 0.9);
+  box-shadow: 0 25px 54px rgba(9, 12, 26, 0.6);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: min(72vh, 620px);
+  background: radial-gradient(circle at 50% 0%, rgba(132, 92, 255, 0.2), transparent 28%), #091221;
+  cursor: crosshair;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(3, 6, 16, 0.46);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel {
+  width: min(88%, 440px);
+  text-align: center;
+  padding: 26px 22px 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(91, 228, 255, 0.25);
+  background: rgba(10, 16, 29, 0.9);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.25);
+}
+
+.panel .eyebrow {
+  margin-bottom: 10px;
+}
+
+.panel h2 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  margin-bottom: 8px;
+}
+
+.panel p {
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+button {
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--cyan), var(--pink));
+  color: #030915;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  box-shadow: 0 14px 30px rgba(91, 228, 255, 0.26);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+#startButton {
+  min-width: 180px;
+  height: 46px;
+  padding: 0 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.move-btn {
+  width: 120px;
+  height: 52px;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 14px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hud {
+    justify-content: space-between;
+  }
+
+  .stat {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .move-btn {
+    width: 46%;
+  }
+}

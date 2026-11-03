@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Drift</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-group">
+          <div class="brand-mark">✦</div>
+          <div>
+            <p class="eyebrow">Arcade Run</p>
+            <h1>Nova Drift</h1>
+          </div>
+        </div>
+        <div class="hud">
+          <div class="stat">
+            <span class="label">Score</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="stat">
+            <span class="label">Lives</span>
+            <strong id="lives">3</strong>
+          </div>
+          <div class="stat">
+            <span class="label">Time</span>
+            <strong id="time">45.0</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="game-panel">
+        <canvas id="gameCanvas" width="960" height="540" aria-label="Nova Drift game board"></canvas>
+
+        <div id="overlay" class="overlay visible">
+          <div class="panel">
+            <p class="eyebrow">Mission Brief</p>
+            <h2 id="overlayTitle">Collect the core crystals</h2>
+            <p id="overlayText">Grab 120 points before the time runs out. Avoid the meteor storm.</p>
+            <button id="startButton">Start Mission</button>
+          </div>
+        </div>
+      </main>
+
+      <div class="controls">
+        <button class="move-btn" data-direction="left" aria-label="Move left">◀</button>
+        <button class="move-btn" data-direction="right" aria-label="Move right">▶</button>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
